@@ -1,6 +1,5 @@
 import React from "react";
 import './App.css';
-import PasswordForm from "./Reset-password";
 
 class App extends React.Component{
 
