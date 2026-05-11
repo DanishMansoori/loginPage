@@ -1,181 +1,198 @@
-@import url("https://fonts.googleapis.com/css2?family=Jura:wght@400;600;700&display=swap");
+/* App.css */
 
-* {
-  box-sizing: border-box;
-  font-family: "Jura", Arial, sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
 }
 
-body {
-  margin: 0;
+.container{
+  display:flex;
+  min-height:100vh;
 }
 
-/* ✅ Background + center */
-.page {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
 
-  background: radial-gradient(circle at top, #2b2b2b, #0e0e0e);
-  overflow: hidden;
-  position: relative;
+/* Sidebar */
+
+.sidebar{
+  width:250px;
+  background:#1e293b;
+  color:white;
+
+  padding:25px;
+
+  display:flex;
+  flex-direction:column;
+  gap:20px;
 }
 
-/* ✅ floating glow circles */
-.page::before,
-.page::after {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  filter: blur(50px);
-  opacity: 0.35;
-  animation: floatGlow 6s ease-in-out infinite;
+.sidebar h2{
+  text-align:center;
+  margin-bottom:20px;
 }
 
-.page::before {
-  top: -100px;
-  left: -100px;
-  background: #00d4ff;
+.sidebar button{
+
+  padding:12px;
+
+  border:none;
+
+  border-radius:6px;
+
+  cursor:pointer;
+
+  background:white;
+
+  font-size:16px;
+
+  transition:0.3s;
 }
 
-.page::after {
-  bottom: -120px;
-  right: -120px;
-  background: #ff00c8;
-  animation-delay: 2s;
+.sidebar button:hover{
+  background:#cbd5e1;
 }
 
-@keyframes floatGlow {
-  0% {
-    transform: translateY(0px);
+
+
+
+/* Main Content */
+
+.main-content{
+
+  flex:1;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  background:#f1f5f9;
+}
+
+
+
+
+/* Card */
+
+.card{
+
+  width:350px;
+
+  background:white;
+
+  padding:30px;
+
+  border-radius:10px;
+
+  box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:15px;
+}
+
+.card h2{
+  text-align:center;
+}
+
+
+
+/* Inputs */
+
+input{
+
+  width:100%;
+
+  padding:12px;
+
+  border:1px solid #ccc;
+
+  border-radius:6px;
+
+  margin-top:10px;
+}
+
+
+
+/* Buttons */
+
+.card button{
+
+  padding:12px;
+
+  border:none;
+
+  border-radius:6px;
+
+  background:#2563eb;
+
+  color:white;
+
+  cursor:pointer;
+
+  margin-top:10px;
+
+  transition:0.3s;
+}
+
+.card button:hover{
+  background:#1d4ed8;
+}
+
+
+
+/* Error */
+
+.error{
+
+  color:red;
+
+  font-size:14px;
+
+  margin-top:5px;
+}
+
+
+
+/* Forgot Password */
+
+.forgot{
+
+  color:blue;
+
+  cursor:pointer;
+
+  margin-top:15px;
+
+  text-align:center;
+}
+
+.forgot:hover{
+  text-decoration:underline;
+}
+
+
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .container{
+    flex-direction:column;
   }
-  50% {
-    transform: translateY(40px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
 
-/* ✅ Card glass look */
-.card {
-  width: 420px;
-  padding: 26px 22px;
-  border-radius: 18px;
-
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
-
-  color: #fff;
-}
-
-/* ✅ Titles */
-h3 {
-  text-align: center;
-  margin: 0 0 18px;
-  font-size: 32px;
-  font-weight: 700;
-  text-transform: capitalize;
-  letter-spacing: 0.5px;
-}
-
-/* ✅ Inputs */
-input {
-  width: 100%;
-  padding: 12px 12px;
-  margin-bottom: 12px;
-
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-
-  background: rgba(0, 0, 0, 0.35);
-  color: #fff;
-
-  outline: none;
-  font-size: 16px;
-}
-
-input::placeholder {
-  color: rgba(255, 255, 255, 0.65);
-}
-
-input:focus {
-  border-color: rgba(255, 255, 255, 0.55);
-  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.15);
-}
-
-/* ✅ Buttons */
-button {
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-
-  font-size: 15px;
-  font-weight: 700;
-  margin-top: 6px;
-
-  transition: 0.2s;
-}
-
-/* ✅ First button: main */
-button:first-of-type {
-  background: linear-gradient(90deg, #00d4ff, #ff00c8);
-  color: #fff;
-}
-
-button:first-of-type:hover {
-  transform: translateY(-2px);
-  opacity: 0.95;
-}
-
-/* ✅ Second button: secondary */
-button:nth-of-type(2) {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
-}
-
-button:nth-of-type(2):hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.22);
-}
-
-/* ✅ Lost password link */
-p {
-  text-align: center;
-  margin-top: 14px;
-  margin-bottom: 0;
-  cursor: pointer;
-  font-weight: 700;
-  color: #00d4ff;
-  text-decoration: underline;
-}
-
-p:hover {
-  opacity: 0.85;
-}
-
-/* ✅ Responsive */
-@media (max-width: 600px) {
-  .card {
-    width: 100%;
-    padding: 22px 18px;
+  .sidebar{
+    width:100%;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
   }
 
-  h3 {
-    font-size: 26px;
+  .main-content{
+    padding:20px;
   }
-
-  input,
-  button {
-    font-size: 14px;
-  }
-} 
+}
